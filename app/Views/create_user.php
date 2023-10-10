@@ -1,8 +1,8 @@
 <?= $this->extend('layouts/app')?>
 <?= $this->section('content')?>
-    <div class="center">
+    <div class="">
         <h3>Create User</h3>
-        <form action="<?= base_url('/user/store');?>" method="POST">
+        <form action="<?= base_url('/user/store');?>" method="POST" enctype="multipart/form-data">
             <!-- <label for="nama" class="form-label">Nama</label>
             <input type="text" id="nama" name="nama" class="form-control"> -->
             <label for="nama" class="form-label">Nama : </label>
@@ -23,7 +23,10 @@
                 <?php
                 }?>
             </select>
-            <div class='invalid-feedback'><?= validation_show_error('kelas'); ?></div><br>
+            <div class='invalid-feedback'><?= validation_show_error('kelas'); ?></div>
+            <label for="foto" class="form-label">Foto : </label>
+            <input type="file" name="foto" class="form-control <?= (empty(validation_show_error('foto'))) ? '' : 'is-invalid' ?>" value='<?= old('foto');?>'>
+            <div class='invalid-feedback'><?= validation_show_error('foto'); ?></div><br>
             <input type="submit" class="btn btn-primary">
         </form>
     </div>
