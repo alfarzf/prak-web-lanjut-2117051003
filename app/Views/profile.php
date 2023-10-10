@@ -1,9 +1,15 @@
 <?= $this->extend('layouts/app')?>
 <?= $this->section('content')?>
-<div class="center">
-        <img class ='img' src="https://cdn.discordapp.com/attachments/857891537986781186/1129757556336754688/961783.jpg" alt="Ini Gambar" height=175px width=175px>
-        <br><p class="p"><?= $nama ?></p>
-        <p class="p"><?= $npm ?></p>
-        <p class="p"><?= $kelas ?></p>
-</div>
+<!-- <div class=""> -->
+        <div class="">
+                <div class='center1'>
+                        <img class ='img' src="<?= $user['foto'] ?? 'https://e7.pngegg.com/pngimages/8/232/png-clipart-computer-icons-man-avatar-male-login-man-people-monochrome.png' ?>" alt="Ini Gambar" height=165px width=165px>
+                </div>
+                <div class='center1'>
+                        <div class='p'><?= $user['nama'] ?></div>
+                        <div class='p'><?= $user['npm'] ?></div>
+                        <div class='p'><?= $user['nama_kelas'] ?></div>
+                </div>
+        </div>
+<!-- </div> -->
 <?= $this->endSection() ?>

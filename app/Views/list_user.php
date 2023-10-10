@@ -1,6 +1,7 @@
 <?= $this->extend('layouts/app')?>
 <?= $this->section('content')?>
-<div class='center'>
+<div class=''>
+<a href="<?= base_url('/user/create') ?>" class='btn btn-info'>Tambah Data</a>
     <table class='table table-warning table-striped'>
         <thead>
             <tr>
@@ -19,11 +20,12 @@
                     <td><?= $user['nama']?></td>
                     <td><?= $user['npm']?></td>
                     <td><?= $user['nama_kelas']?></td>
-                    <td><button type="button" class="btn btn-info">Edit</button> <button type="button" class="btn btn-warning">Hapus</button></td>
+                    <td><a href="<?= base_url('user/'.$user['id']) ?>" class="btn btn-info">Detail</a> <button type="button" class="btn btn-warning">Hapus</button></td>
                 </tr>
             <?php
             }?>
         </tbody>
     </table>
+    
 </div>
 <?= $this->endSection() ?>
