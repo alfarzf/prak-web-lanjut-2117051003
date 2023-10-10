@@ -1,9 +1,9 @@
 .center{
-    width: 40%;
+    width: 50%;
     margin: auto;
-    margin-top: 105px;
-    padding: 10px;
-    border-radius: 25px;
+    margin-top: 120px;
+    padding: 20px;
+    border-radius: 30px;
     background-color: antiquewhite;
     display: flex;
     flex-direction: column;
