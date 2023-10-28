@@ -1,5 +1,6 @@
 <?= $this->extend('layouts/app')?>
 <?= $this->section('content')?>
+<div class='center'>
     <div class="">
         <h3>Create User</h3>
         <form action="<?= base_url('/user/store');?>" method="POST" enctype="multipart/form-data">
@@ -30,4 +31,5 @@
             <input type="submit" class="btn btn-primary">
         </form>
     </div>
+</div>
 <?= $this->endSection() ?>

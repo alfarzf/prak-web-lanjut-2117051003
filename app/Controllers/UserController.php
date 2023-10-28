@@ -77,7 +77,11 @@ class UserController extends BaseController
         //     return redirect()->back()->withInput(); 
         // }
         // $kelasModel = new KelasModel();
-
+        $data=[
+            'nama' => $this->request->getVar('nama'),
+            'npm' => $this->request->getVar('npm'),
+            'id_kelas' => $this->request->getVar('kelas')
+        ];
         $path='assets/uploads/img/';
         $foto=$this->request->getFile('foto');
         // $name = $foto->getRandomName();
@@ -89,10 +93,12 @@ class UserController extends BaseController
             $name = $foto->getRandomName();
             if($foto->move($path, $name)){
                 $foto = base_url($path . $name);
+                $data['foto']=$foto;
             }
-        }else{
-            return redirect()->back()->withInput();
         }
+        // else{
+        //     return redirect()->back()->withInput();
+        // }
 
         if($this->request->getVar('kelas') != ''){
             $kelas_select = $this->kelasModel->where('id', $this->request->getVar('kelas'))->first();
@@ -111,12 +117,7 @@ class UserController extends BaseController
             return redirect()->back()->withInput();
         }
         // $userModel = new UserModel();
-        $this->userModel->saveUser([
-            'nama' => $this->request->getVar('nama'),
-            'npm' => $this->request->getVar('npm'),
-            'id_kelas' => $this->request->getVar('kelas'),
-            'foto' => $foto
-        ]);
+        $this->userModel->saveUser($data);
         return redirect()->to('/user');
         // $data = [
         //     'nama' => $this->request->getVar('nama'),
@@ -149,12 +150,7 @@ class UserController extends BaseController
     public function update($id){
         $path='assets/uploads/img/';
         $foto=$this->request->getFile('foto');
-        if($foto->isValid()){
-            $name = $foto->getRandomName();
-            if($foto->move($path, $name)){
-                $foto_path = base_url($path . $name);
-            }
-        }
+
         if(!$this->validate([
             'npm' => 'required',
             'nama' => 'required|alpha_space',
@@ -170,6 +166,7 @@ class UserController extends BaseController
             'id_kelas' => $this->request->getVar('kelas'),
             'npm' => $this->request->getVar('npm')
         ];
+        
         if($foto->isValid()){
             $name = $foto->getRandomName();
             if($foto->move($path, $name)){
