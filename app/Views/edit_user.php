@@ -1,7 +1,8 @@
 <?= $this->extend('layouts/app')?>
 <?= $this->section('content')?>
+<div class='center'>
     <div class="">
-        <h3>Create User</h3>
+        <h3>Edit User</h3>
         <form action="<?= base_url('/user/' . $user['id']);?>" method="POST" enctype="multipart/form-data">
         <?= csrf_field() ?>
             <!-- <label for="nama" class="form-label">Nama</label>
@@ -32,4 +33,5 @@
             <input type="submit" class="btn btn-primary">
         </form>
     </div>
+</div>
 <?= $this->endSection() ?>
