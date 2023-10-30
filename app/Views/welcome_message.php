@@ -220,7 +220,8 @@
 
     <div class="heroe">
 
-        <h1>Alfa Rizki Fadlillah-2117051003</h1>
+        <h1>Alfa Rizki Fadlillah 
+            2117051003</h1>
 
         <h2>The small framework with powerful features!!!</h2>
 
